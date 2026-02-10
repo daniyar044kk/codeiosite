@@ -5,102 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will you be my valentine?</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-size: 62.5%;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-
             background: linear-gradient(135deg, #f5e0ee, #d5aecb);
             font-family: "Poppins", sans-serif;
-            color: #4a4a4a;
-            text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            text-align: center;
         }
-
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem;
-            border-radius: 15px;
             background: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-
-        .img {
-            width: auto;
-            height: 28rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .img:hover {
-            transform: scale(1.03);
-        }
-
-        .title {
-            font-size: 3.6rem;
-            font-weight: 600;
-            color: hotpink;
-            margin-bottom: 2rem;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        .img { height: 250px; border-radius: 15px; margin-bottom: 20px; }
+        .title { font-size: 32px; color: hotpink; margin-bottom: 20px; }
+        .buttons { display: flex; gap: 15px; justify-content: center; align-items: center; }
         .btn {
-            padding: 1.6rem 3rem;
+            padding: 15px 30px;
             border: none;
             border-radius: 30px;
-            font-size: 1.8rem;
-            font-weight: 500;
+            font-size: 18px;
             cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
         }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-yes {
-            background-color: #26953c;
-            color: white;
-        }
-
-        .btn-no {
-            background-color: rgb(166, 37, 82);
-            color: white;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .hidden {
-            display: none;
-        }
+        .btn-yes { background-color: #26953c; color: white; }
+        .btn-no { background-color: #a62552; color: white; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
 
     <main class="container">
-        <img class="img" src="https://media.tenor.com/TUVAE2M_wz4AAAAi/chubby-tonton.gif" alt="tonton" />
+        <img class="img" src="https://media.tenor.com/TUVAE2M_wZ4AAAAi/chubby-tonton.gif" alt="tonton">
         <p class="title">Will you be my valentine?</p>
         <div class="buttons">
             <button type="button" class="btn btn-yes">Yes</button>
@@ -109,82 +51,40 @@
     </main>
 
     <script>
-        "use strict";
-        const tontonGifs = [
-            "https://media.tenor.com/TUVAE2M_wz4AAAAi/chubby-tonton.gif",
-            "https://media.tenor.com/pZk_U5JVWzUAAAAi/tonton-friends-tonton.gif",
-            "https://media.tenor.com/Jkha_Yjf0oAAAAAi/sad-depression.gif",
-            "https://media.tenor.com/U0OPHZokzkUAAAAi/what-seriously.gif",
-            "https://media.tenor.com/WKXMmSk3JJsAAAAi/chubby-tonton.gif",
-            "https://media.tenor.com/ZHWV13j1iTAAAAAi/chubby-tonton.gif",
-        ];
-
         const title = document.querySelector(".title");
         const btnContainer = document.querySelector(".buttons");
         const yesBtn = document.querySelector(".btn-yes");
         const noBtn = document.querySelector(".btn-no");
         const img = document.querySelector(".img");
 
-        const MAX_IMAGES = 5;
-        let play = true;
+        const tontonGifs = [
+            "https://media.tenor.com/pZk_U5JVWzUAAAAi/tonton-friends-tonton.gif",
+            "https://media.tenor.com/Jkha_Yjf0oAAAAAi/sad-depression.gif",
+            "https://media.tenor.com/U0OPHZokzkUAAAAi/what-seriously.gif",
+            "https://media.tenor.com/WKXMmSk3JJsAAAAi/chubby-tonton.gif",
+            "https://media.tenor.com/ZHWV13j1iTAAAAAi/chubby-tonton.gif"
+        ];
+
+        const messages = ["No 😔", "Are you sure? 🥺", "Pookie please 🥹", "Don't do this... 😭", "Broken heart 💔"];
+        
         let noCount = 0;
-        let yesButtonSize = 1;
-        let noButtonSize = 1;
+        let yesScale = 1;
 
         yesBtn.addEventListener("click", () => {
             title.innerHTML = "Yay! I Love You!! 💗";
+            img.src = "https://media.tenor.com/ACIlvdjNbpIAAAAi/tonton-friends-tonton.gif";
             btnContainer.classList.add("hidden");
-            changeImage("yes");
         });
 
         noBtn.addEventListener("click", () => {
-            if (play) {
-
-🚶🏻‍♂️‍➡️, [10.02.2026 18:03]
-noCount++;
-                const imageIndex = Math.min(noCount, MAX_IMAGES);
-                changeImage(imageIndex);
-                resizeYesButton();
-                shrinkNoButton();
-                updateNoButtonText();
-                if (noCount === MAX_IMAGES) play = false;
+            if (noCount < messages.length) { 
+                yesScale += 0.4;
+                yesBtn.style.transform = scale(${yesScale});
+                noBtn.innerHTML = messages[noCount];
+                img.src = tontonGifs[noCount % tontonGifs.length];
+                noCount++;
             }
         });
-
-        function resizeYesButton() {
-            yesButtonSize *= 1.2;
-            // Тырнақшалар қосылды
-            yesBtn.style.transform = scale(${yesButtonSize});
-        }
-
-        function shrinkNoButton() {
-            noButtonSize *= 0.90;
-            // Тырнақшалар қосылды
-            noBtn.style.transform = scale(${noButtonSize});
-        }
-
-        function generateMessage(noCount) {
-            const messages = [
-                "No 😔",
-                "Are you sure? 🥺",
-                "Pookie please 🥹",
-                "Don't do this to me 😭",
-                "You're breaking my heart 💔",
-                "I'm gonna cry... 😭💔",
-            ];
-            return messages[Math.min(noCount, messages.length - 1)];
-        }
-
-        function changeImage(image) {
-            img.src = image === "yes"
-                ? "https://media.tenor.com/ACIlvdjNbpIAAAAi/tonton-friends-tonton.gif"
-                : tontonGifs[image];
-        }
-
-        function updateNoButtonText() {
-            noBtn.innerHTML = generateMessage(noCount);
-        }
     </script>
 </body>
 </html>
-
