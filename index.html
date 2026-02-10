@@ -79,7 +79,7 @@
         noBtn.addEventListener("click", () => {
             if (noCount < messages.length) { 
                 yesScale += 0.4;
-                yesBtn.style.transform = scale(${yesScale});
+                yesBtn.style.transform = 'scale(${yesScale});'
                 noBtn.innerHTML = messages[noCount];
                 img.src = tontonGifs[noCount % tontonGifs.length];
                 noCount++;
@@ -88,3 +88,4 @@
     </script>
 </body>
 </html>
+
